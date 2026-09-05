@@ -1,0 +1,23 @@
+{
+  "name": "agriconnect-pro",
+  "version": "2.0.0",
+  "description": "Agricultural Intelligence Platform with AI Chat and Image Generation",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "keywords": ["agriculture", "farming", "AI", "chatbot", "image-generation"],
+  "author": "AgriConnect Pro",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.2",
+    "node-fetch": "^2.7.0",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
