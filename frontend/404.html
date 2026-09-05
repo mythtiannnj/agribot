@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 - Field Not Found | AgriConnect Pro</title>
+    <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2913/2913460.png" type="image/png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', 'Segoe UI', sans-serif;
+            min-height: 100vh;
+            background: url('https://i.pinimg.com/736x/fb/0d/b4/fb0db40271c4a84249fa8a890d868447.jpg') no-repeat center center/cover;
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 0;
+        }
+
+        /* Animated particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            background: rgba(76, 175, 80, 0.3);
+            border-radius: 50%;
+            animation: float 15s infinite;
+        }
+
+        .particle:nth-child(1) { top: 20%; left: 10%; animation-delay: 0s; }
+        .particle:nth-child(2) { top: 60%; left: 80%; animation-delay: 2s; }
+        .particle:nth-child(3) { top: 80%; left: 30%; animation-delay: 4s; }
+        .particle:nth-child(4) { top: 40%; left: 60%; animation-delay: 6s; }
+        .particle:nth-child(5) { top: 10%; left: 90%; animation-delay: 8s; }
+        .particle:nth-child(6) { top: 70%; left: 40%; animation-delay: 10s; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); opacity: 0.3; }
+            25% { transform: translateY(-20px) translateX(10px); opacity: 0.6; }
+            50% { transform: translateY(-40px) translateX(-10px); opacity: 0.3; }
+            75% { transform: translateY(-20px) translateX(20px); opacity: 0.6; }
+        }
+
+        .error-container {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 20px;
+            max-width: 600px;
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-radius: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            padding: 50px 40px;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { transform: translateY(-50px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+
+        .error-icon {
+            font-size: 5rem;
+            color: #ffb300;
+            margin-bottom: 20px;
+            animation: pulse 2s ease infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .error-code {
+            font-size: 6rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            letter-spacing: 5px;
+        }
+
+        .error-title {
+            font-size: 2rem;
+            color: white;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+
+        .error-message {
+            font-size: 1.1rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .error-emoji {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border-radius: 50px;
+            border: none;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #4CAF50, #66BB6A);
+            color: white;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.4);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.6);
+            background: linear-gradient(135deg, #66BB6A, #81C784);
+        }
+
+        .btn-secondary {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .btn:active {
+            transform: scale(0.95);
+        }
+
+        .home-link {
+            color: #4caf50;
+            text-decoration: none;
+            margin-top: 20px;
+            display: inline-block;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+        }
+
+        .home-link:hover {
+            color: #66BB6A;
+            text-decoration: underline;
+        }
+
+        .wheat-icon {
+            position: absolute;
+            font-size: 2rem;
+            opacity: 0.3;
+            animation: sway 3s ease infinite;
+        }
+
+        .wheat-icon.left {
+            left: 10%;
+            top: 50%;
+            animation-delay: 0s;
+        }
+
+        .wheat-icon.right {
+            right: 10%;
+            top: 40%;
+            animation-delay: 1.5s;
+        }
+
+        @keyframes sway {
+            0%, 100% { transform: rotate(-10deg); }
+            50% { transform: rotate(10deg); }
+        }
+
+        @media (max-width: 768px) {
+            .glass-card {
+                padding: 30px 20px;
+            }
+            .error-code {
+                font-size: 4rem;
+            }
+            .error-title {
+                font-size: 1.5rem;
+            }
+            .btn {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background Particles -->
+    <div class="particles">
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+        <div class="particle"></div>
+    </div>
+
+    <!-- Decorative Wheat Icons -->
+    <div class="wheat-icon left">🌾</div>
+    <div class="wheat-icon right">🌾</div>
+
+    <div class="error-container">
+        <div class="glass-card">
+            <div class="error-emoji">🚜</div>
+            <div class="error-icon">
+                <i class="fas fa-map-sign"></i>
+            </div>
+            <div class="error-code">404</div>
+            <div class="error-title">Field Not Found</div>
+            <div class="error-message">
+                Oops! This agricultural field doesn't exist.<br>
+                The page you're looking for has been harvested or moved to a new location.
+            </div>
+            <div class="btn-group">
+                <a href="/" class="btn btn-primary">
+                    <i class="fas fa-home"></i> Back to Home
+                </a>
+                <button class="btn btn-secondary" onclick="history.back()">
+                    <i class="fas fa-arrow-left"></i> Go Back
+                </button>
+            </div>
+            <br>
+            <a href="/" class="home-link">
+                <i class="fas fa-leaf"></i> Return to AgriConnect
+            </a>
+        </div>
+    </div>
+
+    <script>
+        // Add hover effects for wheat icons
+        document.querySelectorAll('.wheat-icon').forEach(icon => {
+            icon.addEventListener('mouseenter', () => {
+                icon.style.opacity = '0.6';
+                icon.style.transform = 'scale(1.2)';
+            });
+            icon.addEventListener('mouseleave', () => {
+                icon.style.opacity = '0.3';
+                icon.style.transform = 'scale(1)';
+            });
+        });
+    </script>
+</body>
+</html>
